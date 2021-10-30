@@ -10,10 +10,12 @@ abstract class Controller
 
         ob_start();
 
-        require_once ROOT . '/Views/' . $file . '.php';
+        $root = dirname(__DIR__);
+
+        require_once "$root/Views/$file.php";
 
         $body = ob_get_clean();
 
-        require_once ROOT . '/Views/' . $template . '.php';
+        require_once "$root/Views/$template.php";
     }
 } 
