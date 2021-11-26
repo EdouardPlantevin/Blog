@@ -22,7 +22,7 @@ class Main
             header('Location: ' . $uri);
         }
 
-        $params = explode('/', $_GET['p']);
+        $params = explode('/', filter_input(INPUT_GET, 'p'));
 
         if($params[0] != '')
         {

@@ -4,7 +4,6 @@ use App\Autoloader;
 use App\Core\Main;
 
 define('ROOT', dirname(__DIR__));
-define('PATH', '/Blog/public/');
 
 require_once ROOT . '/Autoloader.php';
 Autoloader::register();

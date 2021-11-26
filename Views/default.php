@@ -14,17 +14,17 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?= PATH ?>">Accueil</a>
+            <a class="navbar-brand" href="/Blog/public/">Accueil</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= PATH ?>liste-des-articles">Liste des articles</a>
+                        <a class="nav-link" href="/Blog/public/liste-des-articles">Liste des articles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= PATH ?>contact">Contact</a>
+                        <a class="nav-link" href="/Blog/public/contact">Contact</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -34,18 +34,18 @@
                     <a href="https://www.linkedin.com/in/edouard-plantevin/" target="_blank" class="d-flex align-items-center mr-2 btn btn-dark">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <?php if(isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
-                        <?php if(isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])): ?>
+                    <?php if($session::get('user') != null && $session::get('user')['id'] != null ): ?>
+                        <?php if($session::get('user')['roles'] != null && in_array('ROLE_ADMIN', $session::get('user')['roles'])): ?>
                             <li class="nav-item">
-                                <a href="<?= PATH ?>admin" class="nav-link">Admin</a>
+                                <a href="/Blog/public/admin" class="nav-link">Admin</a>
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= PATH ?>users/logout">Déconnexion</a>
+                            <a class="nav-link" href="/Blog/public/users/logout">Déconnexion</a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?= PATH ?>users/login">Connexion</a>
+                            <a class="nav-link active" aria-current="page" href="/Blog/public/users/login">Connexion</a>
                         </li>
                     <?php endif; ?>
                 </ul>
@@ -54,11 +54,11 @@
     </nav>
 
     <div class="container">
-        <?php if(!empty($_SESSION['message'])): ?>
-            <div class="alert alert-success" role="alert"><?php echo $_SESSION['message']; unset($_SESSION['message']); ?></div>
+        <?php if($session::get('message') != null):?>
+            <div class="alert alert-success" role="alert"><?php print_r($session::get('message')); $session::forget('message'); ?></div>
         <?php endif ?>
-        <?php if(!empty($_SESSION['error'])): ?>
-            <div class="alert alert-danger" role="alert"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></div>
+        <?php if($session::get('error') != null): ?>
+            <div class="alert alert-danger" role="alert"><?php print_r($session::get('error')); $session::forget('error'); ?></div>
         <?php endif ?>
 
         <?= $body ?>
