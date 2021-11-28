@@ -2,6 +2,6 @@
 
 <div class="card">
     <div class="card-body">
-        <?= $form ?>
+        <?= $form->create() ?>
     </div>
 </div>

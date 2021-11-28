@@ -62,7 +62,7 @@ class ContactController extends Controller
         ->endForm();
 
         $this->render('contact/contact', [
-            'form' => $form->create(),
+            'form' => $form,
             'session' => $session
         ]);
     }
