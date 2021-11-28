@@ -55,10 +55,10 @@
 
     <div class="container">
         <?php if($session::get('message') != null):?>
-            <div class="alert alert-success" role="alert"><?php print_r($session::get('message')); $session::forget('message'); ?></div>
+            <div class="alert alert-success" role="alert"><?php print($session::get('message')); $session::forget('message'); ?></div>
         <?php endif ?>
         <?php if($session::get('error') != null): ?>
-            <div class="alert alert-danger" role="alert"><?php print_r($session::get('error')); $session::forget('error'); ?></div>
+            <div class="alert alert-danger" role="alert"><?php print($session::get('error')); $session::forget('error'); ?></div>
         <?php endif ?>
 
         <?= $body ?>
