@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\Controllers\MainController;
 use App\Models\Server;
+use App\Models\SuperGlobal;
 
 class Main 
 {
@@ -12,7 +13,7 @@ class Main
 
         session_start();
         
-        $uri = Server::get('REQUEST_URI');
+        $uri = SuperGlobal::getServer('REQUEST_URI');
         
         if(!empty($uri) && $uri != "/Blog/public/" && $uri[-1] === "/")
         {

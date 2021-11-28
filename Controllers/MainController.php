@@ -4,13 +4,14 @@ namespace App\Controllers;
 
 use App\Models\Server;
 use App\Models\Session;
+use App\Models\SuperGlobal;
 
 class MainController extends Controller
 {
     public function index()
     {
-        $server = new Server;
-        $url = "/{$server::get('HTTP_HOST')}{$server::get('REQUEST_URI')}";
+        $server = new SuperGlobal;
+        $url = "/{$server::getServer('HTTP_HOST')}{$server::getServer('REQUEST_URI')}";
 
         if($url == "/localhost:8888/BDDPHP/public/")
         {

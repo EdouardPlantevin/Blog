@@ -54,11 +54,11 @@
     </nav>
 
     <div class="container">
-        <?php if($session::get('message') != null):?>
-            <div class="alert alert-success" role="alert"><?php print($session::get('message')); $session::forget('message'); ?></div>
+        <?php if($session->get('message') != null):?>
+            <div class="alert alert-success" role="alert"><?= $session->get('message'); $session->forget('message'); ?></div>
         <?php endif ?>
-        <?php if($session::get('error') != null): ?>
-            <div class="alert alert-danger" role="alert"><?php print($session::get('error')); $session::forget('error'); ?></div>
+        <?php if($session->get('error') != null): ?>
+            <div class="alert alert-danger" role="alert"><?= $session->get('error'); $session->forget('error'); ?></div>
         <?php endif ?>
 
         <?= $body ?>

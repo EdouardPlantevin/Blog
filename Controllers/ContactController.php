@@ -5,16 +5,18 @@ namespace App\Controllers;
 use App\Core\Form;
 use App\Models\Session;
 use App\Models\ContactModel;
+use App\Models\SuperGlobal;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        if(Form::validate($_POST, ['name', 'email', 'message']))
+        $superGlobal = new SuperGlobal;
+        if(Form::validate(SuperGlobal::getGlobalPost(), ['name', 'email', 'message']))
         {
-            $name = strip_tags($_POST['name']);
-            $email = strip_tags($_POST['email']);
-            $message = strip_tags($_POST['message']);
+            $name = strip_tags(SuperGlobal::getPost('name'));
+            $email = strip_tags(SuperGlobal::getPost('email'));
+            $message = strip_tags(SuperGlobal::getPost('message'));
 
             $contact = new ContactModel;
             $contact->setName($name)
@@ -23,16 +25,16 @@ class ContactController extends Controller
 
             $contact->create();
             
-            $_SESSION['message'] = "Votre message a été transmis avec succès";
+            Session::put('message', "Votre message a été transmis avec succès");
             header('Location: /Blog/public/');
             exit;
         }
         else 
         {
-            $_SESSION['error'] =  !empty($_POST) ? "Le formulaire est incomplet" : '';
-            $name = isset($_POST['name']) ? strip_tags($_POST['name']) : '';
-            $email = isset($_POST['email']) ? strip_tags($_POST['email']) : '';
-            $message = isset($_POST['message']) ? strip_tags($_POST['message']) : '';
+            Session::put('error', !empty(SuperGlobal::getGlobalPost()) ? "Le formulaire est incomplet" : '');
+            $name = SuperGlobal::getPost('name') !== null ? strip_tags(SuperGlobal::getPost('name')) : '';
+            $email = SuperGlobal::getPost('email') !== null ? strip_tags(SuperGlobal::getPost('email')) : '';
+            $message = SuperGlobal::getPost('message') !== null ? strip_tags(SuperGlobal::getPost('message')) : '';
         }
 
         $form = new Form();
