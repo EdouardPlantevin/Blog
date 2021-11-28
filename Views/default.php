@@ -34,8 +34,8 @@
                     <a href="https://www.linkedin.com/in/edouard-plantevin/" target="_blank" class="d-flex align-items-center mr-2 btn btn-dark">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <?php if($session::get('user') != null && $session::get('user')['id'] != null ): ?>
-                        <?php if($session::get('user')['roles'] != null && in_array('ROLE_ADMIN', $session::get('user')['roles'])): ?>
+                    <?php if($session->get('user') != null && $session->get('user')['id'] != null ): ?>
+                        <?php if($session->get('user')['roles'] != null && in_array('ROLE_ADMIN', $session->get('user')['roles'])): ?>
                             <li class="nav-item">
                                 <a href="/Blog/public/admin" class="nav-link">Admin</a>
                             </li>

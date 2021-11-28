@@ -12,8 +12,8 @@ class Main
     {
 
         session_start();
-        
-        $uri = SuperGlobal::getServer('REQUEST_URI');
+        $superGlobal = new SuperGlobal;
+        $uri = $superGlobal->getServer('REQUEST_URI');
         
         if(!empty($uri) && $uri != "/Blog/public/" && $uri[-1] === "/")
         {

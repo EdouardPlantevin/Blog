@@ -12,11 +12,12 @@ class ContactController extends Controller
     public function index()
     {
         $superGlobal = new SuperGlobal;
-        if(Form::validate(SuperGlobal::getGlobalPost(), ['name', 'email', 'message']))
+        $session = new Session;
+        if(Form::validate($superGlobal->getGlobalPost(), ['name', 'email', 'message']))
         {
-            $name = strip_tags(SuperGlobal::getPost('name'));
-            $email = strip_tags(SuperGlobal::getPost('email'));
-            $message = strip_tags(SuperGlobal::getPost('message'));
+            $name = strip_tags($superGlobal->getPost('name'));
+            $email = strip_tags($superGlobal->getPost('email'));
+            $message = strip_tags($superGlobal->getPost('message'));
 
             $contact = new ContactModel;
             $contact->setName($name)
@@ -25,16 +26,15 @@ class ContactController extends Controller
 
             $contact->create();
             
-            Session::put('message', "Votre message a été transmis avec succès");
+            $session->put('message', "Votre message a été transmis avec succès");
             header('Location: /Blog/public/');
-            exit;
         }
         else 
         {
-            Session::put('error', !empty(SuperGlobal::getGlobalPost()) ? "Le formulaire est incomplet" : '');
-            $name = SuperGlobal::getPost('name') !== null ? strip_tags(SuperGlobal::getPost('name')) : '';
-            $email = SuperGlobal::getPost('email') !== null ? strip_tags(SuperGlobal::getPost('email')) : '';
-            $message = SuperGlobal::getPost('message') !== null ? strip_tags(SuperGlobal::getPost('message')) : '';
+            $session->put('error', !empty($superGlobal->getGlobalPost()) ? "Le formulaire est incomplet" : '');
+            $name = $superGlobal->getPost('name') !== null ? strip_tags($superGlobal->getPost('name')) : '';
+            $email = $superGlobal->getPost('email') !== null ? strip_tags($superGlobal->getPost('email')) : '';
+            $message = $superGlobal->getPost('message') !== null ? strip_tags($superGlobal->getPost('message')) : '';
         }
 
         $form = new Form();
@@ -63,7 +63,7 @@ class ContactController extends Controller
 
         $this->render('contact/contact', [
             'form' => $form->create(),
-            'session' => new Session
+            'session' => $session
         ]);
     }
 }

@@ -77,7 +77,6 @@ class Model extends Db
     public function update()
     {
         $parameters = [];
-        $inters = [];
         $values = [];
 
         foreach($this as $parameter => $value)
