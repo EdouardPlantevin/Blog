@@ -4,6 +4,7 @@ namespace App\Core;
 
 use App\Controllers\MainController;
 use App\Models\Server;
+use App\Models\SuperGlobal;
 
 class Main 
 {
@@ -11,8 +12,8 @@ class Main
     {
 
         session_start();
-        
-        $uri = Server::get('REQUEST_URI');
+        $superGlobal = new SuperGlobal;
+        $uri = $superGlobal->getServer('REQUEST_URI');
         
         if(!empty($uri) && $uri != "/Blog/public/" && $uri[-1] === "/")
         {
@@ -35,11 +36,6 @@ class Main
             if(method_exists($controller, $action))
             {
                 (isset($params[0])) ? call_user_func_array([$controller, $action], $params) : $controller->$action();
-            }
-            else
-            {
-                http_response_code(404);
-                echo "La page recherchée n'existe pas";
             }
         }
         else 
