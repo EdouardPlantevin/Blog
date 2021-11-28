@@ -22,51 +22,51 @@ class ArticleModel extends Model
     //GETTER
     public function getId()
     {
-        return $this->id;
+        return htmlspecialchars($this->id);
     }
 
     public function getTitle()
     {
-        return $this->title;
+        return htmlspecialchars($this->title);
     }
 
     public function getContent()
     {
-        return $this->content;
+        return htmlspecialchars($this->content);
     }
 
     public function getShortDescription()
     {
-        return $this->short_description;
+        return htmlspecialchars($this->short_description);
     }
 
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return htmlspecialchars($this->created_at);
     }
 
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return htmlspecialchars($this->updated_at);
     }
 
     public function getAuthorId()
     {
-        return $this->author_id;
+        return htmlspecialchars($this->author_id);
     }
 
+    public function getImage()
+    {
+        return htmlspecialchars($this->image);
+    }
+    
+    //SETTER
     public function setId($id)
     {
         $this->id = $id;
         return $this;
     }
 
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    //SETTER
     public function setTitle($title)
     {
         $this->title = $title;

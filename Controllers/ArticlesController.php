@@ -59,7 +59,6 @@ class ArticlesController extends Controller
 
         $articles = $articlesModel->findBy(['active' => 1]);
 
-
         $this->render('articles/article-detail', [
             'article' => $article,
             'articles' => $articles,
