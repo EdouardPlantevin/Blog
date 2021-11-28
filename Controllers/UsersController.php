@@ -23,7 +23,6 @@ class UsersController extends Controller
             {
                 $session->put('error', 'L\'adresse e-mail et/ou le mot de passe est incorrect');
                 $this->redirectToRoute('/Blog/public/users/login');
-                exit;
             }
 
             $user = $userModel->hydrate($userArray);
