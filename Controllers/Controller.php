@@ -10,12 +10,10 @@ abstract class Controller
 
         ob_start();
 
-        $root = dirname(__DIR__);
-
-        require_once "$root/Views/$file.php";
+        require "/Applications/MAMP/htdocs/Blog/Views/$file.php";
 
         $body = ob_get_clean();
 
-        require_once "$root/Views/$template.php";
+        require "/Applications/MAMP/htdocs/Blog/Views/$template.php";
     }
 } 

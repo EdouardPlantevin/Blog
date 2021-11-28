@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Controllers\MainController;
+use App\Models\Server;
 
 class Main 
 {
@@ -10,8 +11,8 @@ class Main
     {
 
         session_start();
-
-        $uri = $_SERVER['REQUEST_URI'];
+        
+        $uri = Server::get('REQUEST_URI');
         
         if(!empty($uri) && $uri != "/Blog/public/" && $uri[-1] === "/")
         {

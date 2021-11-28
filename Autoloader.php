@@ -24,7 +24,7 @@ class Autoloader
 
        if(file_exists($fichier))
        {
-           require_once __DIR__ . '/' . $class . '.php';
+           require __DIR__ . '/' . $class . '.php';
        }
     }
 }
