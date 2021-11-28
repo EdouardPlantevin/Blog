@@ -42,13 +42,13 @@
 
 <div class="row mt-5">
     <div class="col-lg-9 col-sm-12">
-        <img src="/Blog/public/assets/images/<?= $article->image ?>" class="img-cover" alt="<?= $article->title ?>" />
+        <img src="/Blog/public/assets/images/<?= htmlspecialchars($article->image) ?>" class="img-cover" alt="<?= htmlspecialchars($article->title) ?>" />
 
-        <h1 class="title-article"><?= $article->title ?><span class="last-update">Mise à jour le: <?= date_format(new DateTime($article->updated_at), 'd/m/Y') ?> Auteur : <?= $author->fullname ?></span></h1>
+        <h1 class="title-article"><?= htmlspecialchars($article->title) ?><span class="last-update">Mise à jour le: <?= date_format(new DateTime(htmlspecialchars($article->updated_at)), 'd/m/Y') ?> Auteur : <?= htmlspecialchars($author->fullname) ?></span></h1>
 
-        <p><?= $article->short_description ?></p>
+        <p><?= htmlspecialchars($article->short_description) ?></p>
 
-        <p><?= $article->content ?></p>
+        <p><?= htmlspecialchars($article->content) ?></p>
 
         <hr>
         <?php if(isset($session->get('user')['id'])): ?>
@@ -60,21 +60,21 @@
         <h3>Commentaires</h3>
         
         <?php foreach($comments as $comment): ?>
-            <p><?= $comment->content ?></p>
-            <p class="last-update">Ecrit par: <?= $comment->author ?></p>
+            <p><?= htmlspecialchars($comment->content) ?></p>
+            <p class="last-update">Ecrit par: <?= htmlspecialchars($comment->author) ?></p>
         <?php endforeach ?>
     </div>
     <div class="col-lg-3 col-sm-6">
         <h2 class="other-article-detail">Nos autres articles</h2>
         <?php foreach($articles as $otherArticle): ?>
             <?php if($otherArticle->id != $article->id): ?>
-            <a href="/Blog/public/articles/detail/<?= $otherArticle->id ?>" class="link-article btn">
+            <a href="/Blog/public/articles/detail/<?= htmlspecialchars($otherArticle->id) ?>" class="link-article btn">
                 <div class="card">
-                <img src="/Blog/public/assets/images/<?= $otherArticle->image ?>" class="card-img-top" alt="<?= $otherArticle->title ?>">
+                <img src="/Blog/public/assets/images/<?= htmlspecialchars($otherArticle->image) ?>" class="card-img-top" alt="<?= htmlspecialchars($otherArticle->title) ?>">
                     <div class="card-body">
-                        <h5 class="card-title"><?= $article->title ?></h5>
-                        <p class="card-text"><?= $article->short_description ?></p>
-                        <span class="date-card"><?= date_format(new DateTime($otherArticle->updated_at), 'd/m/Y') ?></span>
+                        <h5 class="card-title"><?= htmlspecialchars($article->title) ?></h5>
+                        <p class="card-text"><?= htmlspecialchars($article->short_description) ?></p>
+                        <span class="date-card"><?= date_format(new DateTime(htmlspecialchars($otherArticle->updated_at)), 'd/m/Y') ?></span>
                     </div>
                 </div>
             </a>
