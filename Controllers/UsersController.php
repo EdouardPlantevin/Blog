@@ -21,8 +21,8 @@ class UsersController extends Controller
 
             if(!$userArray)
             {
-                $_SESSION['error'] = "L'adresse e-mail et/ou le mot de passe est incorrect";
-                header('Location: /Blog/public/users/login');
+                $session->put('error', 'L\'adresse e-mail et/ou le mot de passe est incorrect');
+                $this->redirectToRoute('/Blog/public/users/login');
                 exit;
             }
 
@@ -31,14 +31,12 @@ class UsersController extends Controller
             if(password_verify($superGlobal->getPost('password'), $user->getPassword()))
             {
                 $user->setSession();
-                header('Location: /Blog/public/');
-                exit;
+                $this->redirectToRoute('/Blog/public/');
             }
             else 
             {
-                $_SESSION['error'] = "L'adresse e-mail et/ou le mot de passe est incorrect";
-                header('Location: /Blog/public/users/login');
-                exit;
+                $session->put('error', 'L\'adresse e-mail et/ou le mot de passe est incorrect');
+                $this->redirectToRoute('/Blog/public/users/login');
             }
         }
 
@@ -74,8 +72,7 @@ class UsersController extends Controller
                 ->setPassword($password);
 
             $user->create();
-
-            header('Location: /Blog/public/users/login');
+            $this->redirectToRoute('/Blog/public/users/login');
         }
 
         $form = new Form();
@@ -101,7 +98,7 @@ class UsersController extends Controller
         $superGlobal = new SuperGlobal;
         $session = new Session;
         $session->forget('user');
-        header('Location: ' . $superGlobal->getServer('HTTP_REFERER'));
+        $this->redirectToRoute($superGlobal->getServer('HTTP_REFERER'));
     }
 
 }

@@ -22,12 +22,13 @@ class UsersModel extends Model
 
     public function setSession()
     {
-        $_SESSION['user'] = [
+        $session = new Session;
+        $session->put('user', [
             'id' => $this->id,
             'email' => $this->email,
             'fullname' => $this->fullname,
             'roles' => $this->roles
-        ];
+        ]);
     }
 
     public function getId()

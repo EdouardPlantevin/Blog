@@ -27,7 +27,7 @@ class ContactController extends Controller
             $contact->create();
             
             $session->put('message', "Votre message a été transmis avec succès");
-            header('Location: /Blog/public/');
+            $this->redirectToRoute("/Blog/public/");
         }
         else 
         {
