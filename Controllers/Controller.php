@@ -16,4 +16,9 @@ abstract class Controller
 
         require "/Applications/MAMP/htdocs/Blog/Views/$template.php";
     }
+
+    public function redirectToRoute($url)
+    {
+        header("Location: $url");
+    }
 } 
