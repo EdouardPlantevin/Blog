@@ -16,4 +16,9 @@ class SuperGlobal {
     public function getGlobalPost(){
         return $_POST;
     }
+
+    public function getFile()
+    {
+        return $_FILES;
+    }
 }
