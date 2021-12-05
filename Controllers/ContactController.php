@@ -6,6 +6,8 @@ use App\Core\Form;
 use App\Models\Session;
 use App\Models\ContactModel;
 use App\Models\SuperGlobal;
+use PHPMailer\PHPMailer\PHPMailer;
+require '../vendor/autoload.php';
 
 class ContactController extends Controller
 {
@@ -25,8 +27,28 @@ class ContactController extends Controller
                     ->setMesssage($message);
 
             $contact->create();
-            
+
             $session->put('message', "Votre message a été transmis avec succès");
+
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->Host = 'smtp.mailtrap.io';
+            $mail->SMTPAuth = true;
+            $mail->Port = 2525;
+            $mail->Username = '5bbbcb571bd83b';
+            $mail->Password = '8a6bb8470e7a93';
+
+            //Recipients
+            $mail->setFrom('no-reply@edouard.com', 'php blog');
+            $mail->addAddress('plantevin.contact@gmail.com');
+
+            //Content
+            $mail->isHTML(true);                                 
+            $mail->Subject = 'Demande de contact';
+            $mail->Body    = "<p>$message</p>";
+
+            $mail->send();
+            
             $this->redirectToRoute("/Blog/public/");
         }
         else 
