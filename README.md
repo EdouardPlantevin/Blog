@@ -1,5 +1,5 @@
 # Bloc OpenClassroom
-## Un projet réaliser par Edouard Plantevin 
+## Un projet réalisé par Edouard Plantevin 
 
 ## Prérequis
 
