@@ -2,8 +2,24 @@
 
 namespace App\Controllers;
 
+use App\Models\Session;
+use App\Models\SuperGlobal;
+
 abstract class Controller 
 {
+
+    public function session()
+    {
+        $session = new Session;
+        return $session;
+    }
+
+    public function superGlobal()
+    {
+        $superGlobal = new SuperGlobal;
+        return $superGlobal;
+    }
+
     public function render(string $file, array $data = [], string $template = 'default')
     {
         extract($data);
