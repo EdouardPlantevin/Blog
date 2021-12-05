@@ -56,10 +56,10 @@
     
         <div class="container">
             <?php if($session->get('message') != null): ?>
-                <div class="alert alert-success" role="alert"><?= $session->get('message'); $session->forget('message'); ?></div>
+                <div class="alert alert-success" role="alert"><?= htmlspecialchars($session->get('message')); $session->forget('message'); ?></div>
             <?php endif ?>
             <?php if($session->get('error') != null): ?>
-                <div class="alert alert-danger" role="alert"><?= $session->get('error'); $session->forget('error'); ?></div>
+                <div class="alert alert-danger" role="alert"><?= htmlspecialchars($session->get('error')); $session->forget('error'); ?></div>
             <?php endif ?>
     
             <?= $body ?>

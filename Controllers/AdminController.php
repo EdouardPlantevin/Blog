@@ -48,7 +48,6 @@ class AdminController extends Controller
         {
             $this->session()->put('error', 'Vous n\'avez pas accès à cette page');
             $this->redirectToRoute("/Blog/public/");
-            exit;
         }
     }
 
@@ -106,7 +105,6 @@ class AdminController extends Controller
                 
                 $this->session()->put('message', 'Votre article a été enregistrée avec succès');
                 $this->redirectToRoute("/Blog/public/");
-                exit;
             }
             else 
             {
@@ -170,7 +168,6 @@ class AdminController extends Controller
                     http_response_code(404);
                     $this->session()->put('error', 'L\'article recherchée n\'existe pas');
                     $this->redirectToRoute("/Blog/public/articles");
-                    exit;
                 }
     
                 if($article->author_id != $this->session()->get('user')['id'])
@@ -179,7 +176,6 @@ class AdminController extends Controller
                     {
                         $this->session()->put('error', 'Vous n\'avez pas accès à cette page');
                         $this->redirectToRoute("/Blog/public/articles");
-                        exit;
                     }
                 }
     
@@ -202,7 +198,6 @@ class AdminController extends Controller
     
                     $this->session()->put('message', 'Votre article a été modifiée avec succès');
                     $this->redirectToRoute("/Blog/public/");
-                    exit;
                 }
     
                 $form = new Form;
@@ -245,7 +240,6 @@ class AdminController extends Controller
             {
                 $this->session()->put('error', 'Vous devez être connecté(e) pour accéder à cette page');
                 $this->redirectToRoute("/Blog/public/users/login");
-                exit;
             }
 
         }
