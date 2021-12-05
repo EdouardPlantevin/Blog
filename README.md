@@ -15,7 +15,7 @@ Clonez le projet Github à la racine de vos documents de votre serveur local
 https://github.com/EdouardPlantevin/Blog.git
 ```
 
-Un fois téléchargé
+Une fois téléchargé
 
 ```sh
 cd Blog
