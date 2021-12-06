@@ -21,4 +21,9 @@ class SuperGlobal {
     {
         return $_FILES;
     }
+
+    public function cleanString($str)
+    {
+        return htmlspecialchars($str);
+    }
 }
