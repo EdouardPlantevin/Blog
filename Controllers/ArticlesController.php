@@ -17,7 +17,8 @@ class ArticlesController extends Controller
 
         $this->render('articles/index', [
             'articles' => $articles,
-            'session' => $this->session()
+            'session' => $this->session(),
+            'superGlobal' => $this->superGlobal()
         ]);
     }
 
