@@ -7,7 +7,6 @@ use App\Core\Db;
 class Model extends Db
 {
     protected $table;
-
     private $db;
 
     public function findAll()

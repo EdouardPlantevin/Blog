@@ -11,7 +11,7 @@ class Db extends PDO
 
     private const DBHOST = '127.0.0.1:3306';
     private const DBUSER = 'root';
-    private const DBPASS = '';
+    private const DBPASS = 'root';
     private const DBNAME= 'demo_poo';
 
     private function __construct()

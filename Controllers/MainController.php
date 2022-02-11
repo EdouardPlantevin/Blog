@@ -10,7 +10,7 @@ class MainController extends Controller
     {
         $url = "/{$this->superGlobal()->getServer('HTTP_HOST')}{$this->superGlobal()->getServer('REQUEST_URI')}";
 
-        if($url == "/localhost:8888/BDDPHP/public/")
+        if($url == "/localhost:8888/Blog/public/")
         {
             $this->redirectToRoute('/Blog/public/edouard-plantevin');
         }

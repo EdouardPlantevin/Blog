@@ -10,7 +10,7 @@ window.onload = () => {
 function active() {
     let xmlhttp = new XMLHttpRequest;
 
-    xmlhttp.open('GET', '/BDDPHP/public/admin/activeArticle/' + this.dataset.id);
+    xmlhttp.open('GET', '/Blog/public/admin/activeArticle/' + this.dataset.id);
 
     xmlhttp.send();
 }

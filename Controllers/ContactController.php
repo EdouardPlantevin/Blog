@@ -45,7 +45,7 @@ class ContactController extends Controller
             //Content
             $mail->isHTML(true);                                 
             $mail->Subject = 'Demande de contact';
-            $mail->Body    = "<p>$message</p>";
+            $mail->Body    = "<div><h1>Demande de contact</h1></div><p>$name demande souhaite prendre contact avec vous :</p><p>$message</p>";
 
             $mail->send();
             

@@ -59,11 +59,13 @@ class UsersController extends Controller
     {
         $superGlobal = new SuperGlobal;
         $session = new Session;
-        if(Form::validate($superGlobal->getGlobalPost(), ['email', 'password']))
+
+        if(Form::validate($superGlobal->getGlobalPost(), ['email', 'password', 'fullname']))
         {
             $email = strip_tags($superGlobal->getPost('email'));
             $fullname = strip_tags($superGlobal->getPost('fullname'));
             $password = password_hash($superGlobal->getPost('password'), PASSWORD_ARGON2I);
+
 
             $user = new UsersModel;
             $user->setEmail($email)
@@ -71,6 +73,7 @@ class UsersController extends Controller
                 ->setPassword($password);
 
             $user->create();
+
             $this->redirectToRoute('/Blog/public/users/login');
         }
 

@@ -3,11 +3,11 @@
   <h1 class="main-title">Edouard Plantevin, le développeur qu'il vous faut!</h1>
 
   <div class="container-info">
-    <img src="/BDDPHP/public/assets/images/edouard-round.png" class="avatar" alt="edouard plantevin">
+    <img src="/Blog/public/assets/images/edouard-round.png" class="avatar" alt="edouard plantevin">
     <p class="info">
-      Bonjour est bienvenue sur mon site, ici vous allez pouvoir voir les projets que j'ai réaliser 
-      lors de mes formations ainsi que des projets personnels. Tous ont un point commun les sites web,<br>
-      J'ai hate d'avoir vos retour, vous pouvez me contacter via téléphone ou mon adresse email que vous trouverez après avoir lu mon CV que vous trouverez juste <a href="/BDDPHP/public/assets/pdf/cv.pdf" target="_blank">ici</a>
+      Bonjour et bienvenue sur mon site, ici vous allez pouvoir voir les projets que j'ai réalisés
+      lors de mes formations ainsi que des projets personnels. Tous ont un point commun : les sites web.<br>
+      J'ai hâte d'avoir vos retours, vous pouvez me contacter via téléphone ou mon adresse email que vous trouverez après avoir lu mon CV ci-joint <a href="/Blog/public/assets/pdf/cv.pdf" target="_blank">ici</a>
     </p>
   </div>
 
