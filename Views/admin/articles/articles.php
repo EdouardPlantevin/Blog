@@ -15,20 +15,20 @@
             <tbody>
                 <?php foreach($articles as $article): ?>
                     <tr>
-                        <td><?= htmlspecialchars($article->id) ?></td>
-                        <td><?= htmlspecialchars($article->title) ?></td>
+                        <td><?php echo htmlspecialchars($article->id) ?></td>
+                        <td><?php echo htmlspecialchars($article->title) ?></td>
                         <td>
-                            <img src="/Blog/public/assets/images/<?= htmlspecialchars($article->image) ?>" class="img-admin" alt="<?= htmlspecialchars($article->title) ?>" />
+                            <img src="/Blog/public/assets/images/<?php echo htmlspecialchars($article->image) ?>" class="img-admin" alt="<?php echo htmlspecialchars($article->title) ?>" />
                         </td>
                         <td>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" data-id="<?= htmlspecialchars($article->id) ?>" type="checkbox" id="<?= htmlspecialchars($article->id) ?>" <?= htmlspecialchars($article->active) ? 'checked' : '' ?>>
-                                <label class="form-check-label" for="<?= htmlspecialchars($article->id) ?>"></label>
+                                <input class="form-check-input" data-id="<?php echo htmlspecialchars($article->id) ?>" type="checkbox" id="<?php echo htmlspecialchars($article->id) ?>" <?php echo htmlspecialchars($article->active) ? 'checked' : '' ?>>
+                                <label class="form-check-label" for="<?php echo htmlspecialchars($article->id) ?>"></label>
                             </div>
                         </td>
                         <td>
-                            <a href="/Blog/public/admin/editArticle/<?= htmlspecialchars($article->id) ?>" class="btn btn-warning">Modifier</a>
-                            <a href="/Blog/public/admin/deleteArticle/<?= htmlspecialchars($article->id) ?>" class="btn btn-danger">Supprimer</a>
+                            <a href="/Blog/public/admin/editArticle/<?php echo htmlspecialchars($article->id) ?>" class="btn btn-warning">Modifier</a>
+                            <a href="/Blog/public/admin/deleteArticle/<?php echo htmlspecialchars($article->id) ?>" class="btn btn-danger">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

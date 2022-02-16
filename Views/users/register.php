@@ -3,7 +3,7 @@
 <div class="login-container">
     <h1>Inscription</h1>
     <div class="form-card">
-        <?= $form ?>
+        <?php echo $form ?>
         <a href="/Blog/public/users/login">Déjà inscrit ?</a>
     </div>
 </div>

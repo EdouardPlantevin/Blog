@@ -3,6 +3,6 @@
 
 <div class="card">
     <div class="card-body">
-        <?= $form ?>
+        <?php echo $form ?>
     </div>
 </div>

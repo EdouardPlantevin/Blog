@@ -13,11 +13,11 @@
             <tbody>
                 <?php foreach($contacts as $contact): ?>
                     <tr>
-                        <td><?= htmlspecialchars($contact->name) ?></td>
-                        <td><?= htmlspecialchars($contact->email) ?></td>
-                        <td><?= htmlspecialchars($contact->message) ?></td>
+                        <td><?php echo htmlspecialchars($contact->name) ?></td>
+                        <td><?php echo htmlspecialchars($contact->email) ?></td>
+                        <td><?php echo htmlspecialchars($contact->message) ?></td>
                         <td>
-                            <a href="/Blog/public/admin/deleteContact/<?= htmlspecialchars($contact->id) ?>" class="btn btn-danger">Supprimer</a>
+                            <a href="/Blog/public/admin/deleteContact/<?php echo htmlspecialchars($contact->id) ?>" class="btn btn-danger">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

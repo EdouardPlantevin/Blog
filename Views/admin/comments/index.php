@@ -13,12 +13,12 @@
             <tbody>
                 <?php foreach($comments as $comment): ?>
                     <tr>
-                        <td><?= htmlspecialchars($comment->id) ?></td>
-                        <td><?= htmlspecialchars($comment->author) ?></td>
-                        <td><?= htmlspecialchars($comment->content) ?></td>
+                        <td><?php echo htmlspecialchars($comment->id) ?></td>
+                        <td><?php echo htmlspecialchars($comment->author) ?></td>
+                        <td><?php echo htmlspecialchars($comment->content) ?></td>
                         <td>
-                            <a href="/Blog/public/admin/activeComment/<?= htmlspecialchars($comment->id) ?>" class="btn btn-primary w-100 mb-1">Approuvé</a>
-                            <a href="/Blog/public/admin/deleteComment/<?= htmlspecialchars($comment->id) ?>" class="btn btn-danger w-100">Supprimer</a>
+                            <a href="/Blog/public/admin/activeComment/<?php echo htmlspecialchars($comment->id) ?>" class="btn btn-primary w-100 mb-1">Approuvé</a>
+                            <a href="/Blog/public/admin/deleteComment/<?php echo htmlspecialchars($comment->id) ?>" class="btn btn-danger w-100">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

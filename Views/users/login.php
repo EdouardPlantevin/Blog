@@ -3,7 +3,7 @@
     <h1>Connexion</h1>
     
     <div class="form-card">
-        <?= $form ?>
+        <?php echo $form ?>
         <a href="/Blog/public/users/register">Pas encore de compte ?</a>
     </div>
 </div>
